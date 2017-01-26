@@ -1,0 +1,47 @@
+body{
+  background:#f3f3e1 !important;
+}
+.wrap{
+  margin:0 auto;
+  width:1000px;
+}
+.logo{
+  margin-top:50px !important;
+}
+.logo h1{
+  font-size:200px !important;
+  color:#8F8E8C !important;
+  text-align:center !important;
+  margin: 0 0 1px !important;
+  text-shadow:1px 1px 6px #fff !important;
+}
+.logo p{
+  color:rgb(228, 146, 162);
+  font-size:20px;
+  margin-top:1px;
+  text-align:center;
+}
+.logo p span{
+  color:lightgreen  ;
+}
+.sub a, .sub a:visited, .sub a:hover {
+  color:white;
+  background:#8F8E8C;
+  text-decoration:none;
+  padding:7px 120px;
+  font-size:13px;
+  font-family: arial, serif;
+  font-weight:bold;
+  -webkit-border-radius:3em;
+  -moz-border-radius:.1em;
+  -border-radius:.1em;
+}
+.footer{
+  color:#8F8E8C;
+  position:absolute;
+  left: calc(50% - 208px);
+  bottom:10px;
+}
+.footer a, .footer a:hover, .footer a:visited {
+  color:rgb(228, 146, 162);
+}
