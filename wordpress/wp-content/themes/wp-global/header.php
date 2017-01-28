@@ -75,7 +75,7 @@
         <div class="content">
           <div>
             <div class="free-call">Бесплатный звонок по всей России</div>
-            <div style="line-height: 1;">8(800)333-14-73</div>
+            <div style="line-height: 1;"><?php the_field('telepfon', 7); ?></div>
           </div>
         </div>
       </section>
@@ -96,6 +96,6 @@
     <!-- /#navigation -->
   </header>
   <!-- /#header -->
-  <section id="main" role="main" class="clearfix">
+
 
 

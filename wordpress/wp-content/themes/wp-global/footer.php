@@ -54,7 +54,19 @@
         <section id="block-block-5" class="block block-block">
           <div class="content">
             <div class="social-link">
-              <a href="http://bsc.global/#"><img src="<?php echo get_template_directory_uri(); ?>/img/vk.png" style="height:40px; width:40px" alt="vkontakte"><img src="<?php echo get_template_directory_uri(); ?>/img/fb.png" style="height:40px; width:40px" alt="facebook"><img src="<?php echo get_template_directory_uri(); ?>/img/tw.png" style="height:40px; width:40px" alt="twitter"><img src="<?php echo get_template_directory_uri(); ?>/img/ok.png" style="height:40px; width:40px" alt="odnoklassniki"><img src="<?php echo get_template_directory_uri(); ?>/img/youtube.png" style="height:40px; width:40px" alt="youtube"></a>
+              <?php if( have_rows('social' ) ): ?>
+                <?php while ( have_rows('social', 7 ) ) : the_row(); ?>
+
+                      <a href="<?php the_sub_field('link'); ?>">
+                        <?php $image = get_sub_field('image');
+                        if( !empty($image) ): ?>
+                          <img src="<?php echo $image['url']; ?>" style="height:40px; width:40px" alt="<?php echo $image['alt']; ?>" />
+                        <?php endif; ?>
+                      </a>
+
+                  <?php  endwhile; ?>
+              <?php endif; ?>
+
             </div>
           </div>
         </section>

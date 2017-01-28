@@ -1,13 +1,20 @@
 <?php /* Template Name: Front Page */ get_header(); ?>
 
+  <section id="main" role="main" class="clearfix">
     <a id="main-content"></a>
     <div class="wrapper-1920 slider-wrap">
       <div class="wrapper">
         <div class="field field-name-field-links field-type-link-field field-label-hidden">
           <div class="field-items">
-            <div class="field-item even"><a href="http://bsc.global/companies">купить готовую фирму</a></div>
-            <div class="field-item odd"><a href="http://bsc.global/registration">заказать изготовление фирмы</a></div>
-            <div class="field-item even"><a href="http://bsc.global/buy-firms">продать свою фирму</a></div>
+            <?php if( have_rows('left_content_links' ) ): ?>
+              <?php while ( have_rows('left_content_links', 7 ) ) : the_row(); ?>
+                <div class="field-item">
+                  <a href="<?php the_sub_field('link'); ?>">
+                   <?php the_sub_field('title'); ?>
+                  </a>
+                </div>
+              <?php  endwhile; ?>
+            <?php endif; ?>
           </div>
         </div>
         <div class="price-list">
@@ -19,9 +26,9 @@
         <!-- slider -->
 
 
-        <?php if( have_rows('home_slider' ) ): ?>
+        <?php if( have_rows('home_page_slider' ) ): ?>
           <div class="field-slider-wrap">
-            <?php while ( have_rows('home_slider', 7 ) ) : the_row(); ?>
+            <?php while ( have_rows('home_page_slider', 7 ) ) : the_row(); ?>
               <div class="field-item">
 
                 <?php $image = get_sub_field('image');
@@ -74,72 +81,30 @@
           <div class="content">
             <div class="view view-services-block view-id-services_block view-display-id-block view-dom-id-87374c052e21a45d0a1e5793e3ac2ec3">
               <div class="view-content">
-                <div class="views-row views-row-1 views-row-odd views-row-first">
-                  <div class="views-field views-field-field-image">
-                    <div class="field-content"><img typeof="foaf:Image" src="<?php echo get_template_directory_uri(); ?>/img/pokupka_firm.jpg" width="480" height="320" alt="Предлагаем покупку фирм"></div>
-                  </div>
-                  <div class="views-field views-field-title">
-                    <div class="field-content h3">Покупка фирм</div>
-                  </div>
-                  <div class="views-field views-field-field-link">
-                    <div class="field-content btn"><a href="http://bsc.global/companies">подробнее</a></div>
-                  </div>
-                </div>
-                <div class="views-row views-row-2 views-row-even">
-                  <div class="views-field views-field-field-image">
-                    <div class="field-content"><img typeof="foaf:Image" src="<?php echo get_template_directory_uri(); ?>/img/register-firm.jpg" width="480" height="320" alt="Услуги по регистрации фирм"></div>
-                  </div>
-                  <div class="views-field views-field-title">
-                    <div class="field-content h3">Регистрация фирм</div>
-                  </div>
-                  <div class="views-field views-field-field-link">
-                    <div class="field-content btn"><a href="http://bsc.global/registration">подробнее</a></div>
-                  </div>
-                </div>
-                <div class="views-row views-row-3 views-row-odd">
-                  <div class="views-field views-field-field-image">
-                    <div class="field-content"><img typeof="foaf:Image" src="<?php echo get_template_directory_uri(); ?>/img/ur-address.jpg" width="480" height="320" alt="Предлагаем купить юридические адреса"></div>
-                  </div>
-                  <div class="views-field views-field-title">
-                    <div class="field-content h3">Продажа юридических адресов</div>
-                  </div>
-                  <div class="views-field views-field-field-link">
-                    <div class="field-content btn"><a href="http://bsc.global/uraddr">подробнее</a></div>
-                  </div>
-                </div>
-                <div class="views-row views-row-4 views-row-even">
-                  <div class="views-field views-field-field-image">
-                    <div class="field-content"><img typeof="foaf:Image" src="<?php echo get_template_directory_uri(); ?>/img/soprovozdenie-tender.jpg" width="480" height="320" alt="Сопровождение в тендерах"></div>
-                  </div>
-                  <div class="views-field views-field-title">
-                    <div class="field-content h3">Сопровождение в тендерах</div>
-                  </div>
-                  <div class="views-field views-field-field-link">
-                    <div class="field-content btn"><a href="http://bsc.global/tender">подробнее</a></div>
-                  </div>
-                </div>
-                <div class="views-row views-row-5 views-row-odd">
-                  <div class="views-field views-field-field-image">
-                    <div class="field-content"><img typeof="foaf:Image" src="<?php echo get_template_directory_uri(); ?>/img/reg-firm-usa.jpg" width="480" height="320" alt="Зарегистрировать фирму в США"></div>
-                  </div>
-                  <div class="views-field views-field-title">
-                    <div class="field-content h3">Регистрация фирм в США</div>
-                  </div>
-                  <div class="views-field views-field-field-link">
-                    <div class="field-content btn"><a href="http://bsc.global/usa">подробнее</a></div>
-                  </div>
-                </div>
-                <div class="views-row views-row-6 views-row-even views-row-last">
-                  <div class="views-field views-field-field-image">
-                    <div class="field-content"><img typeof="foaf:Image" src="<?php echo get_template_directory_uri(); ?>/img/liquid-firms.jpg" width="480" height="320" alt="Ликвидировать фирму"></div>
-                  </div>
-                  <div class="views-field views-field-title">
-                    <div class="field-content h3">Ликвидация фирм</div>
-                  </div>
-                  <div class="views-field views-field-field-link">
-                    <div class="field-content btn"><a href="http://bsc.global/liquidation">подробнее</a></div>
-                  </div>
-                </div>
+
+                <?php if( have_rows('servises_links' ) ): ?>
+                    <?php while ( have_rows('servises_links', 7 ) ) : the_row(); ?>
+
+                      <div class="views-row">
+                        <div class="views-field views-field-field-image">
+                          <div class="field-content">
+                            <?php $image = get_sub_field('image');
+                            if( !empty($image) ): ?>
+                              <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                            <?php endif; ?>
+                          </div>
+                        </div>
+                        <div class="views-field views-field-title">
+                          <div class="field-content h3"><?php the_sub_field('title'); ?></div>
+                        </div>
+                        <div class="views-field views-field-field-link">
+                          <div class="field-content btn"><a href="<?php the_sub_field('link'); ?>">подробнее</a></div>
+                        </div>
+                      </div>
+
+                    <?php  endwhile; ?>
+                <?php endif; ?>
+
               </div>
             </div>
           </div>
